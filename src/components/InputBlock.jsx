@@ -1,22 +1,8 @@
 import { useState } from "react";
 
 
-export default function InputBlock() {
-    const [inputs, setInputs] = useState({
-        initialInvestment: '10000',
-        annualInvestment: '1000',
-        expectedReturn: '5',
-        investmentDuration: '20'
-    });
-
-    function handleInputChange(inputName, value) {
-        setInputs(setInputs => {
-            return {
-                ...setInputs,
-                [inputName]: value
-            }
-        })
-    }
+export default function InputBlock( {inputs, handleInputChange} ) {
+    
 
     return(
         <section id = "user-input">

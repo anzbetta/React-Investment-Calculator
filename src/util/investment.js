@@ -10,17 +10,39 @@ export function calculateInvestmentResults({
   expectedReturn,
   duration,
 }) {
+
+  initialInvestment = +initialInvestment;
+  annualInvestment = +annualInvestment;
+  expectedReturn = +expectedReturn;
+  duration = +duration;
+
   const annualData = [];
   let investmentValue = initialInvestment;
 
   for (let i = 0; i < duration; i++) {
-    const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-    investmentValue += interestEarnedInYear + annualInvestment;
+    // внесок на початку року
+    investmentValue += annualInvestment;
+
+    const interestEarnedInYear =
+      investmentValue * (expectedReturn / 100);
+
+    investmentValue += interestEarnedInYear;
+
+    const year = i + 1;
+
+    const totalInvestedCapital =
+      initialInvestment + (annualInvestment * year);
+
+    const totalInterest =
+      investmentValue - totalInvestedCapital;
+
     annualData.push({
-      year: i + 1, // year identifier
-      interest: interestEarnedInYear, // the amount of interest earned in this year
-      valueEndOfYear: investmentValue, // investment value at end of year
-      annualInvestment: annualInvestment, // investment added in this year
+      year: year,
+      interest: interestEarnedInYear,
+      valueEndOfYear: investmentValue,
+      annualInvestment: annualInvestment,
+      totalInterest: totalInterest,
+      totalInvestedCapital: totalInvestedCapital,
     });
   }
 

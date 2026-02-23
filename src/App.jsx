@@ -1,26 +1,30 @@
 import Header from "./components/Header"
 import InputBlock from "./components/InputBlock"
+import Results from "./components/Results"
+import { useState } from "react";
 
+
+
+function App() {
   const [inputs, setInputs] = useState({
       initialInvestment: '10000',
       annualInvestment: '1000',
       expectedReturn: '5',
-      investmentDuration: '20'
+      duration: '20'
   });
   function handleInputChange(inputName, value) {
-      setInputs(setInputs => {
+      setInputs(prevInputs => {
           return {
               ...setInputs,
               [inputName]: value
           }
       })
   }
-
-function App() {
   return (
     <>
       <Header />
       <InputBlock inputs={inputs} handleInputChange={handleInputChange} />
+      <Results inputs={inputs} />
     </>
   )
 }

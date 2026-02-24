@@ -20,7 +20,6 @@ export function calculateInvestmentResults({
   let investmentValue = initialInvestment;
 
   for (let i = 0; i < duration; i++) {
-    // внесок на початку року
     investmentValue += annualInvestment;
 
     const interestEarnedInYear =

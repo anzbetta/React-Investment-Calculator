@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 
 export default function InputBlock( {inputs, handleInputChange} ) {
     
@@ -23,7 +21,7 @@ export default function InputBlock( {inputs, handleInputChange} ) {
                 </p>
                 <p>
                     <label htmlFor="investment-duration">Investment Duration</label>
-                    <input type="number" id="investment-duration" value = {inputs.investmentDuration} onChange={(event) => handleInputChange("investmentDuration", event.target.value)}/>
+                    <input type="number" id="investment-duration" value = {inputs.duration} onChange={(event) => handleInputChange("duration", event.target.value)}/>
                 </p>
             </div>
         </section>
